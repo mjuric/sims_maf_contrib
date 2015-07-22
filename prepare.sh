@@ -10,12 +10,39 @@ set -e
 # so Travis can cache it easily.
 mkdir -p pkginfo-cache
 
-# Prepare conda-lsst environment
-rm -rf conda-lsst
-git clone https://github.com/mjuric/conda-lsst
-cd conda-lsst
-./bin/bootstrap.sh
-export PATH="$PWD/bin:$PWD/miniconda/bin:$PATH"
+#
+# Install Miniconda
+#
+
+if [[ ! -f "$PWD/miniconda/.installed" ]]; then
+        case "$OSTYPE" in
+                linux*)  MINICONDA_SH=Miniconda-latest-Linux-x86_64.sh ;;
+                darwin*) MINICONDA_SH=Miniconda-latest-MacOSX-x86_64.sh ;;
+                *)	 echo "Unsupported OS $OSTYPE. Exiting."; exit -1 ;;
+        esac
+
+	rm -f "$MINICONDA_SH"
+        rm -rf "$PWD/miniconda"
+        curl -O https://repo.continuum.io/miniconda/"$MINICONDA_SH"
+        bash "$MINICONDA_SH" -b -p "$PWD/miniconda"
+        rm -f "$MINICONDA_SH"
+
+        #
+	# Install prerequisites
+        #
+	export PATH="$PWD/miniconda/bin:$PATH"
+        conda install conda-build jinja2 binstar requests sqlalchemy pip --yes
+
+        pip install requests_file
+
+        # marker that we're done
+        touch "$PWD/miniconda/.installed"
+else
+    	echo
+	echo "Found Miniconda in $PWD/miniconda; skipping Miniconda install."
+        echo
+fi
+
 hash -r
 conda config --set always_yes yes --set changeps1 no
 conda config --add channels http://eupsforge.net/conda/dev
