@@ -5,7 +5,7 @@
 #
 
 set -e
-
+df -kh .
 # keep the pkginfo cache database outside the conda-lsst dir
 # so Travis can cache it easily.
 mkdir -p pkginfo-cache
