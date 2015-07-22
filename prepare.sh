@@ -49,3 +49,5 @@ conda config --set always_yes yes --set changeps1 no
 conda config --add channels http://eupsforge.net/conda/dev
 conda install -q lsst-apps
 conda install -q lsst-sims-maf
+conda remove -q -y lsst-sims-sed-library
+conda remove -q -y lsst-sims-dustmaps
