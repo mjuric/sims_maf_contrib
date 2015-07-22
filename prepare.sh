@@ -31,7 +31,7 @@ if [[ ! -f "$PWD/miniconda/.installed" ]]; then
 	# Install prerequisites
         #
 	export PATH="$PWD/miniconda/bin:$PATH"
-        conda install conda-build jinja2 binstar requests sqlalchemy pip --yes
+        conda install -q conda-build jinja2 binstar requests sqlalchemy pip --yes
 
         pip install requests_file
 
@@ -46,5 +46,5 @@ fi
 hash -r
 conda config --set always_yes yes --set changeps1 no
 conda config --add channels http://eupsforge.net/conda/dev
-conda install -f -q lsst-apps
-conda install -f -q lsst-sims-maf
+conda install -q lsst-apps
+conda install -q lsst-sims-maf
