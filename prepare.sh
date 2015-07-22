@@ -5,6 +5,7 @@
 #
 
 set -e
+echo Disk space available:
 df -kh .
 # keep the pkginfo cache database outside the conda-lsst dir
 # so Travis can cache it easily.
