@@ -5,4 +5,4 @@ install:
 - source ./prepare.sh
 - pip install 
 script:
-- bash test-sims-maf.sh
+- bash sims-maf.sh
