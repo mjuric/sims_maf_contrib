@@ -1,11 +1,11 @@
 language: python
 python:
-	-"2.7"
+	- "2.7"
 
 install:
-	conda config --add channels http://eupsforge.net/conda/dev
-	conda install lsst-apps
-	conda install lsst-sims-maf
+	- conda config --add channels http://eupsforge.net/conda/dev
+	- conda install lsst-apps
+	- conda install lsst-sims-maf
 
 script:
-	bash test-sims-maf.sh
+	- bash test-sims-maf.sh
