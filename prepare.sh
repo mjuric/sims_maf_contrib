@@ -46,5 +46,5 @@ fi
 hash -r
 conda config --set always_yes yes --set changeps1 no
 conda config --add channels http://eupsforge.net/conda/dev
-conda install lsst-apps
-conda install lsst-sims-maf
+conda install -q lsst-apps
+conda install -q lsst-sims-maf
