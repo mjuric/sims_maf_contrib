@@ -10,9 +10,9 @@ cd tutorials
 echo "Downloading necessary files"
 wget -nc http://www.astro.washington.edu/users/lynnej/opsim/ops2_1114_sqlite.db
 #http://ops2.tuc.noao.edu/runs/ops2_1114/data/ops2_1114_sqlite.db
-if [[ ! -f enigma_1189_sqlite.db ]] 2>"f.out"; then
-	wget -O - http://www.astro.washington.edu/users/lynnej/opsim/enigma_1189_sqlite.db.gz | gunzip -c > enigma_1189_sqlite.db.gz
-fi 
+#if [[ ! -f enigma_1189_sqlite.db ]] 2>"f.out"; then
+#	wget -O - http://www.astro.washington.edu/users/lynnej/opsim/enigma_1189_sqlite.db.gz | gunzip -c > enigma_1189_sqlite.db.gz
+#fi 
 echo "Setting up environment"
 ERROR=0
 for f in *.ipynb; do 
