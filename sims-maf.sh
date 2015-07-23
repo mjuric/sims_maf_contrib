@@ -20,6 +20,27 @@ for f in *.ipynb; do
 	if [[ "$f" == SDSSSlicer.ipynb ]]; then
 		continue
 	fi
+	if [[ "$f" == "Complex Metrics.ipynb" ]]; then
+                continue
+        fi
+	if [[ "$f" == Dithers.ipynb ]]; then
+                continue
+        fi
+	if [[ "$f" == MAFCameraGeom.ipynb ]]; then
+                continue
+        fi
+	if [[ "$f" == "Plotting Examples.ipynb" ]]; then
+                continue
+        fi
+	if [[ "$f" == Slicers.ipynb ]]; then
+                continue
+        fi	
+	if [[ "$f" == Stackers.ipynb ]]; then
+                continue
+        fi
+	if [[ "$f" == "Writing A New Metric.ipynb" ]]; then
+                continue
+        fi
 	if runipy "$f" "tested-$f" 2>"$f.out"; then
 		echo "$f" passed.
 	else
