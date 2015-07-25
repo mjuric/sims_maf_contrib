@@ -20,6 +20,9 @@ for f in *.ipynb; do
 	if [[ "$f" == SDSSSlicer.ipynb ]]; then
 		continue
 	fi
+	if [[ "$f" == MAFCameraGeom.ipynb ]]; then
+                continue
+        fi
 	if runipy "$f" "tested-$f" 2>"$f.out"; then
 		echo "$f" passed.
 	else
